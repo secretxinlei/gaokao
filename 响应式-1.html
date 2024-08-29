@@ -1,0 +1,213 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>高考信息收集表</title>  
+    <link rel="stylesheet" href="styles.css">  
+</head> 
+<style>
+   /* 通用样式 */  
+body {  
+    font-family: Arial, sans-serif;  
+    margin: 20px;  
+    background-color: #f3fdf68c;  
+    color: #333;  
+}  
+  
+form#examForm {  
+    background-color: rgba(255, 255, 255, 0.5); /* 白色背景，50% 透明度 */  
+    padding: 20px;  
+    border-radius: 8px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 轻微的阴影效果，也带有一定的透明度 */  
+    width: 100%;  
+    max-width: 600px;  
+    margin: 0 auto; /* 水平居中 */
+}   
+  
+/* 标签和选择框样式 */  
+label {  
+    display: block;  
+    margin-bottom: 5px;  
+    font-weight: bold;  
+}  
+  
+select, input[type="number"] {  
+    width: 100%;  
+    padding: 8px;  
+    margin-bottom: 15px;  
+    border: 1px solid #ccc;  
+    border-radius: 4px;  
+    box-sizing: border-box; /* 让padding和border不增加元素的宽度 */  
+}  
+  
+/* 复选框样式 */  
+.subject-checkbox {  
+    margin-right: 10px; /* 在复选框和标签之间添加一些空间 */  
+}  
+  
+/* 按钮样式 */  
+.button-container {  
+    display: flex;  
+    justify-content: center; /* 水平居中 */  
+    align-items: center; /* 垂直居中（如果父容器有高度的话）*/  
+}  
+button[type="button"] {  
+    background-color: #007bff;  
+    color: white;  
+    padding: 10px 20px;  
+    border: none;  
+    border-radius: 4px;  
+    cursor: pointer;  
+    transition: background-color 0.3s;  
+
+}  
+  
+button[type="button"]:hover {  
+    background-color: #0056b3;  
+}  
+  
+/* 链接样式 */  
+a {  
+    display: block;  
+    margin-top: 20px;  
+    text-align: center;  
+    text-decoration: none;  
+    color: #007bff;  
+    font-weight: bold;  
+}  
+  
+a:hover {  
+    text-decoration: underline;  
+}  
+.run{
+    display: flex;
+}
+</style> 
+<body> 
+    <div id="formContainer">  
+    <form id="examForm">  
+        <div>  
+            <label for="province">高考省份：</label>  
+            <select id="province">  
+    <option value="beijing">北京</option>  
+    <option value="tianjin">天津</option>  
+    <option value="shanghai">上海</option>  
+    <option value="chongqing">重庆</option>  
+    <option value="hebei">河北</option>  
+    <option value="shanxi">山西</option>  
+    <option value="liaoning">辽宁</option>  
+    <option value="jilin">吉林</option>  
+    <option value="heilongjiang">黑龙江</option>  
+    <option value="jiangsu">江苏</option>  
+    <option value="zhejiang">浙江</option>  
+    <option value="anhui">安徽</option>  
+    <option value="fujian">福建</option>  
+    <option value="jiangxi">江西</option>  
+    <option value="shandong">山东</option>  
+    <option value="henan">河南</option>  
+    <option value="hubei">湖北</option>  
+    <option value="hunan">湖南</option>  
+    <option value="guangdong">广东</option>  
+    <option value="guangxi">广西</option>  
+    <option value="hainan">海南</option>  
+    <option value="sichuan">四川</option>  
+    <option value="guizhou">贵州</option>  
+    <option value="yunnan">云南</option>  
+    <option value="xizang">西藏</option>  
+    <option value="shanxi1">陕西</option> <!-- 注意：这里陕西的value改为了shanxi1，因为与山西的value冲突了 -->  
+    <option value="gansu">甘肃</option>  
+    <option value="qinghai">青海</option>  
+    <option value="ningxia">宁夏</option>  
+    <option value="xinjiang">新疆</option>  
+    <option value="inner_mongolia">内蒙古</option>  
+    <option value="guangxi_zhuangzu">广西壮族自治区</option>  
+    <option value="ningxia_huizu">宁夏回族自治区</option>  
+    <option value="xizang_zu">西藏自治区</option>  
+    <!-- 这里可以继续添加其他自治区、特别行政区等 -->  
+    <option value="hongkong">香港特别行政区</option>  
+    <option value="macao">澳门特别行政区</option>  
+            </select>  
+        </div>  
+        <div>  
+            <label for="grade">年级：</label>  
+            <select id="grade">  
+                <option value="highschool">高三</option>  
+                <!-- 如果有其他年级也可以添加 -->  
+            </select>  
+        </div>  
+        <div>  
+            <label for="type">考生类型：</label>  
+            <select id="type">  
+                <option value="normal">普通考生</option>  
+                <option value="art">艺术考生</option>  
+                <option value="special">特殊考生（如：残疾考生、少数民族考生等）</option>  
+                <!-- 其他考生类型 -->  
+            </select>  
+        </div>  
+        <div>  
+            <label for="scoreType">成绩类型：</label>  
+            <select id="scoreType">  
+                <option value="one">本科</option>  
+                <option value="two">专科</option>    
+                <!-- 其他成绩类型 -->  
+            </select>  
+        </div>  
+        <div>  
+            <label for="score">分数：</label>  
+            <input type="number" id="score" placeholder="请输入分数（如果成绩类型为总分或单科成绩）">  
+        </div>  
+        <div>  
+            <label for="rank">排名：</label>  
+            <input type="number" id="rank" placeholder="请输入排名（如果成绩类型为排名）">  
+        </div>  
+        <div class="run">  
+            <label>高考科目（最多选择3个）：</label>  
+            <br>  
+            <input type="checkbox" class="subject-checkbox" name="examSubjects" value="history">  
+            <label>历史</label>  
+            <br>  
+            <input type="checkbox" class="subject-checkbox" name="examSubjects" value="physics">  
+            <label>物理</label>  
+            <br>  
+            <input type="checkbox" class="subject-checkbox" name="examSubjects" value="chemistry">  
+            <label>化学</label>  
+            <br>  
+            <input type="checkbox" class="subject-checkbox" name="examSubjects" value="biology">  
+            <label>生物</label>  
+            <br>  
+            <input type="checkbox" class="subject-checkbox" name="examSubjects" value="geography">  
+            <label>地理</label>  
+            <br>  
+            <input type="checkbox" class="subject-checkbox" name="examSubjects" value="politics">  
+            <label>政治</label>  
+            <br>  
+        </div> 
+        <div class="button-container" >
+            <button type="button" onclick="hideFormContainer()">确定</button>  
+    </div>
+        <a href="index.html" target="_blank">VIP直接登录</a>  
+    </form>
+    </div>  
+  
+    <script>  
+    document.querySelectorAll('.subject-checkbox').forEach(function(checkbox) {  
+        checkbox.addEventListener('change', function() {    
+            // 检查已选中的复选框数量  
+            var checkedCount = document.querySelectorAll('.subject-checkbox:checked').length;  
+              
+            // 如果已选中数量超过3，且当前复选框被选中，则取消选中  
+            if (checkedCount > 3 && this.checked) {  
+                this.checked = false;  
+                alert('您只能选择三个科目！');  
+            }  
+        });  
+    }); 
+    function hideFormContainer() {  
+    var formContainer = document.getElementById("formContainer");  
+    formContainer.style.display = "none";  
+}   
+</script>  
+   
+</body>  
+</html>
